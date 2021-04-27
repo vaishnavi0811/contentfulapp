@@ -16,7 +16,9 @@ jobs:
     steps:
     # checkout the repo
     - name: 'Checkout Github Action'
-      uses:  actions/checkout@dependabotnpm_and_yarn/ini-1.3.7
+      uses:  actions/checkout@v2
+      with:
+        ref: 'dependabot/npm_and_yarn/ini-1.3.7'
 
     - name: Set up Node.js version
       uses: actions/setup-node@v1
