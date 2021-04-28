@@ -84,7 +84,16 @@ provider "azurerm" {
 	 tenant_id = var.tenant_id
 	 features {}
 }
-
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "32943"
+    storage_account_name = "cloudlegonewstorage"
+    container_name       = "tfstate"
+    key                  = "dev.terraform.tfstate"
+    access_key = "y3yRwsDZoqoz20V6ZlRN3ImBzWXu6BuyUovv13cyfJQKMhtJC2QPa/FxNKTtVDMTwBbbsq9cws2c6U8V7//2oQ=="
+    sas_token  = "sp=r&st=2021-04-28T11:52:24Z&se=2021-04-28T19:52:24Z&spr=https&sv=2020-02-10&sr=c&sig=47BDPYHa23pM76hMM5pv0Znam7WHDJasF2RYpJOslpU%3D"
+  }
+}
 data "azurerm_subnet" "vmSubnet" {
   name = var.subnet_name
   resource_group_name = var.vnetRGroup
